@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+header {
+    background: #ffffff;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+
+.hero p {
+    color: #666;
+    font-size: 18px;
+}
+
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+label {
+    display: block;
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+
+
+.upload-box {
+    border: 2px dashed #aaa;
+    padding: 35px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+
+button,
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.secondary {
+    background: #666;
+}
+
+
+.score-card {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+
+.score {
+    font-size: 55px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+
+.progress {
+    height: 15px;
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+.progress-bar {
+    height: 100%;
+    background: #222;
+    transition: width 1s ease;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.skills span {
+    background: #eee;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+
+.skill {
+    padding: 8px 0;
+}
+
+
+.matched {
+    color: green;
+}
+
+
+.missing {
+    color: red;
+}
+
+
+.section-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+
+.found {
+    color: green;
+}
+
+
+.not-found {
+    color: red;
+}
+
+
+li {
+    margin: 10px 0;
+}
+
+
+.actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+th,
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+
+th {
+    background: #f5f5f5;
+}
+
+
+.filename {
+    color: #666;
+}
+
+
+@media (max-width: 700px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    header {
+        padding: 15px 5%;
+    }
+
+    main {
+        width: 94%;
+    }
+
+}

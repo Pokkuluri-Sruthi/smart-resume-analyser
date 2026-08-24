@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Analysis History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        SmartResume
+    </div>
+
+    <nav>
+
+        <a href="/">Analyzer</a>
+
+        <a href="/history">History</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <h1>Analysis History</h1>
+
+
+    {% if records %}
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>File</th>
+
+                        <th>Score</th>
+
+                        <th>Matched Skills</th>
+
+                        <th>Missing Skills</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for record in records %}
+
+                    <tr>
+
+                        <td>
+                            {{ record[1] }}
+                        </td>
+
+                        <td>
+
+                            <strong>
+                                {{ record[2] }}/100
+                            </strong>
+
+                        </td>
+
+                        <td>
+                            {{ record[3] or "None" }}
+                        </td>
+
+                        <td>
+                            {{ record[4] or "None" }}
+                        </td>
+
+                        <td>
+                            {{ record[5] }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    {% else %}
+
+        <div class="card">
+
+            <h2>No Analysis Yet</h2>
+
+            <p>
+                Upload your first resume to see
+                your analysis history.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</main>
+
+</body>
+
+</html>

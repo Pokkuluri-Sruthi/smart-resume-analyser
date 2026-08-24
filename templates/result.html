@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        SmartResume
+    </div>
+
+    <nav>
+
+        <a href="/">Analyzer</a>
+
+        <a href="/history">History</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <h1>Resume Analysis</h1>
+
+    <p class="filename">
+        {{ filename }}
+    </p>
+
+
+    <section class="score-card">
+
+        <h2>Resume Score</h2>
+
+        <div class="score">
+            {{ result.score }}/100
+        </div>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                style="width: {{ result.score }}%">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="grid">
+
+
+        <div class="card">
+
+            <h2>Contact Information</h2>
+
+            <p>
+                <strong>Email:</strong>
+                {{ result.email }}
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                {{ result.phone }}
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Skills Detected</h2>
+
+            <div class="skills">
+
+                {% for skill in result.skills %}
+
+                    <span>
+                        {{ skill }}
+                    </span>
+
+                {% else %}
+
+                    <p>No skills detected.</p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Matched Skills</h2>
+
+            {% for skill in result.matched_skills %}
+
+                <div class="skill matched">
+                    ✓ {{ skill }}
+                </div>
+
+            {% else %}
+
+                <p>
+                    No matching skills found.
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Missing Skills</h2>
+
+            {% for skill in result.missing_skills %}
+
+                <div class="skill missing">
+                    ✗ {{ skill }}
+                </div>
+
+            {% else %}
+
+                <p>
+                    No major missing skills detected.
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Resume Sections</h2>
+
+            {% for section, found in result.sections.items() %}
+
+                <div class="section-row">
+
+                    <span>
+                        {{ section }}
+                    </span>
+
+                    {% if found %}
+
+                        <span class="found">
+                            ✓ Found
+                        </span>
+
+                    {% else %}
+
+                        <span class="not-found">
+                            ✗ Missing
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Suggestions</h2>
+
+            <ul>
+
+                {% for suggestion in result.suggestions %}
+
+                    <li>
+                        {{ suggestion }}
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <div class="actions">
+
+        <a href="/" class="button">
+            Analyze Another Resume
+        </a>
+
+        <a href="/history" class="button secondary">
+            View History
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

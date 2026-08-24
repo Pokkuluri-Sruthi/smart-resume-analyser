@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        SmartResume
+    </div>
+
+    <nav>
+
+        <a href="/">Analyzer</a>
+
+        <a href="/history">History</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>
+            Smart Resume Analyzer
+        </h1>
+
+        <p>
+            Analyze your resume, discover your skills
+            and improve your chances of getting shortlisted.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <form action="/analyze"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <label>
+                Upload Resume
+            </label>
+
+            <div class="upload-box">
+
+                <input
+                    type="file"
+                    name="resume"
+                    accept=".pdf,.docx"
+                    required
+                >
+
+                <p>
+                    PDF or DOCX only
+                </p>
+
+            </div>
+
+
+            <label>
+                Job Description
+            </label>
+
+            <textarea
+                name="job_description"
+                placeholder="Paste the job description here..."
+                rows="8">
+            </textarea>
+
+
+            <button type="submit">
+
+                Analyze Resume
+
+            </button>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
